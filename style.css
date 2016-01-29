@@ -1,0 +1,283 @@
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+
+
+/* global
+------------------------ */
+
+* {
+	-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+			box-sizing: border-box;
+}
+body {
+	background: #fff;
+	font-family: sans-serif;
+	font-size: 12.8px;
+	color: #000;
+	margin: 0;
+}
+body > div > *:first-child {
+	margin-top: 0;
+}
+p {
+	margin: .2em 0;
+}
+hr {
+	border: 0;
+	border-top: 1px solid #ccc;
+	display: block;
+	height: 1px;
+	margin: 1.5em 0;
+}
+h2 {
+	border-bottom: 1px solid #ccc;
+	font-size: 1.2em;
+	font-weight: normal;
+	margin-top: 2em;
+	padding-bottom: .5em;
+}
+h3 {
+	background: rgba(0, 0, 0, .1);
+	border: none;
+	font-size: 1em;
+	font-weight: normal;
+	margin: 0;
+	padding: .5em;
+	text-align: left;
+}
+.hidden {
+	display: none;
+}
+#nav,
+#ua_tab > ul:first-child,
+#ualist ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+.notice {
+	margin: 1em 0;
+}
+
+/* form elements */
+
+input:not([type="text"]),
+label {
+	cursor: pointer;
+}
+input[type="radio"],
+input[type="checkbox"] {
+	display: inline-block;
+	margin-right: .25em;
+	vertical-align: middle;
+}
+input[type="radio"]:checked + label {
+	color: #219be2;
+	font-weight: bold;
+}
+input[type="radio"][id="default"]:checked + label {
+	color: #8e8e8e;
+}
+
+.disabledLabel {
+	color: #f0004f !important;
+}
+
+.validInput {
+	border: solid 2px #cbe86b !important; 
+	-moz-transition: .3s ease-in-out;
+}
+.invalidInput {
+	border: solid 2px #c02942 !important;
+	-moz-transition: .3s ease-in-out;
+}
+select {
+	-moz-appearance: none;
+		appearance: none;
+	background: rgba(0, 0, 0, .025) url('../images/dropdown.png') no-repeat right center;
+	border: none;
+	cursor: pointer;
+	padding-right: 1.5em;
+}
+
+/* expand/collapse section */
+
+.trigger {
+	cursor: pointer;
+	position: relative;
+}
+.trigger:after {
+	content: "+";
+	display: block;
+	position: absolute;
+	top: .5em;
+	right: .5em;
+}
+.expandable {
+	margin: .7em 0 !important;
+}
+.trigger + .expandable {
+	display: none;
+}
+.expandable + .trigger {
+	margin-top: 2px;
+}
+:not(.expandable) + .trigger,
+body > div > div > .trigger:first-child {
+	margin-top: 1.5em;
+}
+.trigger.open:after {
+	content: "–";
+}
+.trigger.open + .expandable {
+	display: block;
+}
+
+
+/* nav
+------------------------ */
+
+#nav {
+	background: #8e8e8e;
+	color: #fff;
+}
+#nav li {
+	cursor: pointer;
+	display: inline-block;
+	padding: .5em;
+	text-align: center;
+	width: 23%;
+}
+#nav li:last-child {
+	width: 8%;
+}
+#nav li:hover,
+#nav li:focus {
+	background: rgba(255, 255, 255, .3);
+}
+#nav li.selected {
+	background: #fff;
+	color: #8e8e8e;
+	font-weight: bold;
+}
+#nav li.selected:hover,
+#nav li.selected:focus {
+	background: #fff;
+}
+.spoof #nav {
+	background: #219be2;
+}
+.spoof #nav li.selected {
+	color: #219be2;
+}
+
+.disabled #nav {
+	background: #f0004f;
+}
+.disabled #nav li.selected {
+	color: #f0004f;
+}
+
+/* tabs
+------------------------ */
+
+body > div {
+	padding: 2em 1.5em;
+}
+
+/* profile tab */
+
+#ua_tab > ul:first-child {
+	-moz-columns: 2;
+		 columns: 2;
+	margin-bottom: 1.5em;
+}
+#ua_tab > ul:first-child li {
+	display: inline-block;
+	width: 100%;
+}
+#time_interval_display {
+	display: none;
+}
+.random #time_interval_display {
+	display: block;
+}
+#ualist h3.active {
+	background: #219be2;
+	color: #fff;
+}
+#ualist li {
+	position: relative;
+}
+.random #ualist li span,
+.random #ualist li input[type="checkbox"] {
+	display: inline-block;
+	position: absolute;
+	right: 0;
+}
+#ualist li span,
+#ualist li input[type="checkbox"]{
+	display: none;
+}
+
+/* headers tab */
+
+.multi + p label {
+	display: inline-block;
+	margin-left: 1.7em;
+	width: calc(30% - 1.7em);
+}
+#xffip,
+#viaip {
+	margin-left: 1em;
+	border: 2px solid #ccc;
+	background-color:#fff;
+	width: calc(70% - 1em);
+}
+
+
+/* extras tab */
+
+
+
+/* whitelist tab */
+
+#whitelist_tab textarea {
+	background-color:#fff;
+	border: 2px solid #ccc;
+	height: 60%;
+	resize: none;
+	width: 100%;
+}
+
+
+#whitelist_tab input[type="text"] {
+	background-color:#fff;
+	border: 2px solid #ccc;
+	width: 100%;
+}
+
+/* help tab */
+
+#help_tab h2 {
+	border: none;
+	font-size: 1.5em;
+	font-weight: bold;
+	padding: 0;
+}
+#help_tab h3 {
+	background: none;
+	font-size: 1em;
+	font-weight: bold;
+	margin:	1em 0;
+	padding: 0;
+}
+#help_tab #version {
+	margin: 1em 0;
+}
+#help_tab h2,
+#version {
+	text-align: center;
+}
+

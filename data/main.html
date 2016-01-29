@@ -1,0 +1,49 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" media="all" href="style.css"/>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+
+  <body>
+	<label for="browserName">Browser</label>
+	<select id = "browserName">
+		<option value="volvo">Mozilla Firefox</option>
+		<option value="saab">Chrome</option>
+		<option value="opel">Internet Explorer</option>
+		<option value="audi">Safari</option>
+	</select>
+	<label for="browserVersion">Version</label>
+ 	<select id = "browserVersion">
+		<option value="volvo">Version</option>
+		<option value="saab">3</option>
+		<option value="opel">2</option>
+		<option value="audi">1</option>
+	</select>
+	<br>
+    <label for="resolution">Resolution</label>
+  	<select id = "Resolution">
+		<option value="volvo">Version</option>
+		<option value="saab">3</option>
+		<option value="opel">2</option>
+		<option value="audi">1</option>
+	</select>
+	<br>  
+    <label for="fonts">Fonts</label>
+  	<select multiple id = "Fonts">
+		<option value="volvo">Version</option>
+		<option value="saab">3</option>
+		<option value="opel">2</option>
+		<option value="audi">1</option>
+	</select>  
+    <label for="addons">Addons</label>
+  	<select multiple id = "Addons">
+		<option value="addon1">addon1</option>
+	</select>  
+    <br>
+    <br>
+	<button onclick="scrapeAndSetUi()">Use Most Common Agent</button>
+
+  </body>
+</html>

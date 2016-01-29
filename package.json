@@ -1,0 +1,15 @@
+{
+  "title": "Panoptiprint",
+  "name": "panoptiprint",
+  "version": "0.0.1",
+  "description": "Addon to obfuscate browser fingerprinting techniques",
+  "main": "index.js",
+  "author": "Justin Roll, Eric Yun, Jirbert Dilanchian",
+  "engines": {
+    "firefox": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack"
+  ]
+}
