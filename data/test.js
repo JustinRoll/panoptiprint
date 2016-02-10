@@ -1,1 +1,5 @@
-console.log("test js");
+function scrape() {
+	alert("test");
+	console.log("test js");	
+}
+

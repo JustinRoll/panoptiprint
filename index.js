@@ -4,24 +4,18 @@ var data = require("sdk/self").data;
 // into it.
 var Request = require("sdk/request").Request;
 var text;
+var text_entry;
 
-Request({
-  url: "https://techblog.willshouse.com/2012/01/03/most-common-user-agents",
-  onComplete: function (response) {
-	console.log("made req");
-	text = response.text;
-	rest();
-  }
-}).get();
+var PrefServ = require('./PrefServ');
+
  
-var rest = function() {
-var text_entry = require("sdk/panel").Panel({
+
+
+text_entry = require("sdk/panel").Panel({
   contentURL: data.url("main.html"),
   contentScriptFile: [
-	data.url("jquery-2.2.0.js"),
-	data.url("pullData.js"),
-  ],
-  contentScriptOptions: {"message" : text}
+  data.url("jquery-2.2.0.js"),
+	data.url("content.js")]
 });
 
 // Create a button
@@ -36,10 +30,7 @@ require("sdk/ui/button/action").ActionButton({
   onClick: handleClick
 });
 
-// Show the panel when the user clicks the button.
-function handleClick(state) {
-  text_entry.show();
-}
+
 
 // When the panel is displayed it generated an event called
 // "show": we will listen for that event and when it happens,
@@ -49,4 +40,19 @@ text_entry.on("show", function() {
   text_entry.port.emit("show");
 });
 
+
+// Show the panel when the user clicks the button.
+function handleClick(state) {
+  text_entry.show();
 }
+
+function setAgent(userAgent) {
+  prefs = require("sdk/preferences/service");
+  prefs.set("general.useragent.override", userAgent);
+  prefs.set("general.useragent.vendor", "Opera");
+  prefs.set("general.appversion.override", "420");
+}
+
+setAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36");
+console.log("agent should be set now");
+

@@ -1,39 +1,42 @@
 
-var html;
-$.support.cors = true
-var $input = $('<input type="button" id="soso" value="Pull Settings">').click(scrapeAndSetUi);
-jQuery("body").append($input);
-var map = {};
-var html = self.options["message"];
-console.log(html);
+console.log("test");
+window.addEventListener('message', function(event) {
+        console.log("got message WHAT");
+        map = scrapeData(event.data);
+        updateUI(map);
+      }, false);
+
 
 function scrapeData(data) {
-	agentMap = {};
-	console.log("got here scrape");
-	console.log(html);
-	var table = $("make-html-table most-common-user-agents");
+	agentMap = [];
+	console.log(data);
+	var table = $(data);
+	console.log(table.text());
     var header = table.find("th");
-	var rows = table.find("tr")
+	var rows = table.find("tr");
+
+	header.each(function(idx, element) {
+		console.log($.text(element));
+
+	});
+
+	console.log("Entering scrape loop");
+	console.log(rows.length);
+
 	for(var i = 0; i < rows.length; i++) {
-		var tds = rows.find("td");
-		agentMap = {};
-		map[i] = agentMap;
-    	for (var j = 0; j < tds.length; j++) {
-        	agentMap[header[j]] = tds[j];
-		} 
+		row = rows[i];
+		console.log("got row");
+		var tds = $(row).find("td");
+		console.log("got tds " + tds.length);
+		subMap = {};
+		if (tds.length > 0 ) {
+			agentMap.push(subMap);
+    		for (var j = 0; j < tds.length; j++) {
+        		subMap[$.text(header[j])] = $.text(tds[j]);
+			} 
+		}
     }
-	return map; 
-}
-
-
-function scrapeAndSetUi() {
-	console.log("scrape set ui")
-	map = scrapeData(html);
-	updateUi(map);
-}
-
-
-function doStuff(data) {
-	console.log("test doStuff");
+    console.log(agentMap);
+	return agentMap; 
 }
 

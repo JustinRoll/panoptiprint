@@ -8,6 +8,9 @@
   "engines": {
     "firefox": ">=38.0a1"
   },
+ "permissions": {
+    "cross-domain-content": ["https://techblog.willshouse.com/", "https://techblog.willshouse.com/"]
+}, 
   "license": "MIT",
   "keywords": [
     "jetpack"
