@@ -7,15 +7,30 @@ var text;
 var text_entry;
 
 var PrefServ = require('./PrefServ');
+//var json = JSON.parse("./data/useragents.json");
+//console.log(json);
 
  
 
 
 text_entry = require("sdk/panel").Panel({
   contentURL: data.url("main.html"),
+    width: 900,
+  height: 400,
+  onMessage: function(contentScriptMessage) {
+    console.log("got UAmessage! it is " + contentScriptMessage);
+    setAgent(contentScriptMessage);
+  },
+    // Handle message from the content script
   contentScriptFile: [
   data.url("jquery-2.2.0.js"),
-	data.url("content.js")]
+	data.url("content.js"),
+  data.url("ua-parser.js"),
+  data.url("useragents.json"),
+  data.url("ui.js"),
+  data.url("pullData.js")
+
+  ]
 });
 
 // Create a button
@@ -49,10 +64,19 @@ function handleClick(state) {
 function setAgent(userAgent) {
   prefs = require("sdk/preferences/service");
   prefs.set("general.useragent.override", userAgent);
-  prefs.set("general.useragent.vendor", "Opera");
-  prefs.set("general.appversion.override", "420");
+  //prefs.set("general.useragent.vendor", "Opera");
+  //prefs.set("general.appversion.override", "420");
 }
 
-setAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36");
-console.log("agent should be set now");
+//setAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36");
+//setAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/601.4.4 (KHTML, like Gecko) Version/9.0.3 Safari/601.4.4")
+//setAgent("Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36")
+//setAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.109 Safari/537.36")
+//setAgent("Mozilla/5.0 (Windows NT 6.1; WOW64; rv:44.0) Gecko/20100101 Firefox/44.0")
+//setAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36")
+//setAgent("Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.109 Safari/537.36")
+//setAgent("Mozilla/5.0 (Windows NT 10.0; WOW64; rv:44.0) Gecko/20100101 Firefox/44.0")
+//setAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.109 Safari/537.36")
+//setAgent("Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko")
+
 

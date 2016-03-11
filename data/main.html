@@ -3,48 +3,62 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" media="all" href="style.css"/>
 	<script src="jquery-2.2.0.js"></script>
-	<script src="ui.js"></script>
-	<script src="pullData.js"></script>
+	<script src="useragents.json"></script>
+	<script src="ua-parser.js"></script>
+	
 </head>
 
   <body>
-	<label for="browserName">Browser</label>
-	<select id = "browserName">
-		<option value="volvo">Mozilla Firefox</option>
-		<option value="saab">Chrome</option>
-		<option value="opel">Internet Explorer</option>
-		<option value="audi">Safari</option>
+  	
+   		<center><h3>Panoptiprint<img src="icon-32.png"><br> </h3></center> 		
+<div id = "bigflex">
+	<div class = "labelItem">
+		<div class = "left">
+  		<label for="os">Operating System</label>
+  	</div>
+  	<div class = "right">
+	<select id = "os">
 	</select>
-	<label for="browserVersion">Version</label>
- 	<select id = "browserVersion">
-		<option value="volvo">Version</option>
-		<option value="saab">3</option>
-		<option value="opel">2</option>
-		<option value="audi">1</option>
-	</select>
-	<br>
-    <label for="resolution">Resolution</label>
-  	<select id = "Resolution">
-		<option value="volvo">Version</option>
-		<option value="saab">3</option>
-		<option value="opel">2</option>
-		<option value="audi">1</option>
-	</select>
-	<br>  
-    <label for="fonts">Fonts</label>
-  	<select multiple id = "Fonts">
-		<option value="volvo">Version</option>
-		<option value="saab">3</option>
-		<option value="opel">2</option>
-		<option value="audi">1</option>
-	</select>  
-    <label for="addons">Addons</label>
-  	<select multiple id = "Addons">
-		<option value="addon1">addon1</option>
-	</select>  
-    <br>
-    <br>
-	<button onclick="window.pullData()">Use Most Common Agent</button>
+</div>
+</div>
 
+	<div class = "labelItem">
+		<div class = "left">
+	<label for="browserName">Browser</label>
+</div>
+<div class = "right">
+	<select id = "browserName">
+	</select>
+</div>
+
+</div>
+
+<div class = "labelItem">
+	<div class = "left">
+	<label for="browserVersion">Version</label>
+</div>
+<div class = "right">
+ 	<select id = "browserVersion">
+	</select>
+</div>
+
+</div>
+
+	<br>  
+	<div class = "labelItem">
+		<div class = "left">
+	<label for="userAgent">Agent</label></div>
+	<div class = "right"><select id = "userAgent">
+
+	</select>
+</div>
+</div>
+
+</div>
+
+    <br>
+    <br>
+	<button onclick="window.pullData()">Pull User Agents</button>
+</center>
   </body>
 </html>
